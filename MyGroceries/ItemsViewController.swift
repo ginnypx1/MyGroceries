@@ -20,7 +20,9 @@ class ItemsViewController: CoreDataTableViewController {
         super.viewDidLoad()
         
         // Add "Add to List" bar button item
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add to List", style: .plain, target: self, action: #selector(addItemToDatabase))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .plain, target: self, action: #selector(addNewItemInAlert))
+        // Add "Edit" bar button item
+        // navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTable))
         
         // Set the title
         guard let glist = groceryList else {
@@ -33,9 +35,9 @@ class ItemsViewController: CoreDataTableViewController {
     
     // MARK: - Add new item to the list
     
-    func addItemToDatabase() {
+    func addItemToDatabase(name: String) {
         if let gl = groceryList, let context = fetchedResultsController?.managedObjectContext {
-            let newItem = Item(name: "New Item", context: context)
+            let newItem = Item(name: name, context: context)
             newItem.groceryList = gl
             print("Created new item: \(String(describing: newItem))")
         } else {
@@ -53,7 +55,7 @@ class ItemsViewController: CoreDataTableViewController {
             // Get 1st TextField's text
             let textField = alert.textFields![0]
             if let listItem = textField.text {
-                self.addItemToDatabase()
+                self.addItemToDatabase(name: listItem)
             }
         })
         
@@ -92,10 +94,28 @@ class ItemsViewController: CoreDataTableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
-        if let context = fetchedResultsController?.managedObjectContext, let item = fetchedResultsController?.object(at: indexPath) as? Item, editingStyle == .delete {
-            context.delete(item)
+        if editingStyle == .delete {
+            
+            if let context = fetchedResultsController?.managedObjectContext, let item = fetchedResultsController?.object(at: indexPath) as? Item, editingStyle == .delete {
+                context.delete(item)
+            }
+        }
+    }
+    
+    @IBAction func editTable(_ sender: UIBarButtonItem) {
+        // allows table rows to be deleted
+        tableView.setEditing(!tableView.isEditing, animated: true)
+        // changes the text of the edit button
+        if tableView.isEditing {
+            sender.title = "Done"
+        } else {
+            sender.title = "Edit"
         }
     }
     

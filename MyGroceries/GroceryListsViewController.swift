@@ -19,6 +19,7 @@ class GroceryListsViewController: CoreDataTableViewController {
         
         // Set the title
         title = "My Grocery Lists"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTable))
         
         // Get the stack
         let delegate = UIApplication.shared.delegate as! AppDelegate
@@ -74,7 +75,7 @@ class GroceryListsViewController: CoreDataTableViewController {
     
     @IBAction func addNewGroceryList(_ sender: Any) {
         // Create a new grocery list... and Core Data takes care of the rest!
-        addListToDatabase(named: "New List")
+        addNewListInAlert()
     }
     
     // MARK: TableView Data Source
@@ -94,9 +95,28 @@ class GroceryListsViewController: CoreDataTableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if let context = fetchedResultsController?.managedObjectContext, let groceryList = fetchedResultsController?.object(at: indexPath) as? GroceryList, editingStyle == .delete {
-            context.delete(groceryList)
+        
+        if editingStyle == .delete {
+            
+            if let context = fetchedResultsController?.managedObjectContext, let groceryList = fetchedResultsController?.object(at: indexPath) as? GroceryList, editingStyle == .delete {
+                context.delete(groceryList)
+            }
+        }
+    }
+    
+    @IBAction func editTable(_ sender: UIBarButtonItem) {
+        // allows table rows to be deleted
+        tableView.setEditing(!tableView.isEditing, animated: true)
+        // changes the text of the edit button
+        if tableView.isEditing {
+            sender.title = "Done"
+        } else {
+            sender.title = "Edit"
         }
     }
     

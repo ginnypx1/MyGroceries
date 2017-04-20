@@ -27,11 +27,9 @@ The app data is persisted using Core Data.
 
 ## Additional Features
 
-This app currently shows only mocked data stored inside Core Data.
-
 Additional features I am currently working on include:
-- giving the user the ability to generate a new list
-- giving the user the ability to add items to any list
-- giving the user the ability to delete any list
-- giving the user the ability to delete items from any list
-- adding a nice screen for any empty table prompting the user to create a new list
+- icons and a launch screen, a new font and some design pizazz
+- Grocery List title doesn't inject properly into ItemsViewController
+- allow user to delete items from ItemsViewController
+- change the Edit button title to Done when user is deleting items or lists
+- add a nice screen for any empty table prompting the user to create a new list

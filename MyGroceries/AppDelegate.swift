@@ -34,15 +34,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vonsList = GroceryList(name: "Vons", context: stack.context)
         let costcoList  = GroceryList(name: "Costco", context: stack.context)
         
-        // Check out the "data" field when you print an NSManagedObject subclass.
-        print(vonsList)
-        print(costcoList)
-        
         // Create Items
         let bananas = Item(name: "Bananas", context: stack.context)
         let salmon = Item(name: "Salmon", context: stack.context)
         
-        // Let's set the notebook property of those 2 notes
+        // set the grocery list for the items
         bananas.groceryList = vonsList
         salmon.groceryList = costcoList
 
@@ -51,22 +47,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: UIApplicationDelegate
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Load some notebooks and notes.
+        // Load some grocery lists and items.
         // preloadData()
-        // Start Autosaving
         stack.autoSave(10)
         return true
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
-
-        stack.save()
+        // save when the application is about to move from active to inactive state.
+        do {
+            try stack.saveContext()
+        } catch {
+            print("There was an error saving the app data in WillResignActive.")
+        }
         
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-
-        stack.save()
+        // save when app moves to the background
+        do {
+            try stack.saveContext()
+        } catch {
+            print("There was an error saving the app data in WillResignActive.")
+        }
     }
 }
 
