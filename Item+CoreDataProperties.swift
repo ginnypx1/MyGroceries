@@ -2,7 +2,7 @@
 //  Item+CoreDataProperties.swift
 //  MyGroceries
 //
-//  Created by Ginny Pennekamp on 4/17/17.
+//  Created by Ginny Pennekamp on 4/20/17.
 //  Copyright © 2017 GhostBirdGames. All rights reserved.
 //
 

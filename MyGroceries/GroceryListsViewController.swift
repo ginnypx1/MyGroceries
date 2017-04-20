@@ -6,14 +6,13 @@
 //  Copyright © 2017 GhostBirdGames. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import CoreData
 
 
 class GroceryListsViewController: CoreDataTableViewController {
     
-    // MARK: Life Cycle
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +35,46 @@ class GroceryListsViewController: CoreDataTableViewController {
     
     // MARK: - Add new grocery list
     
+    func addNewListInAlert() {
+        let alert = UIAlertController(title: "Create New Grocery List",
+                                      message: "Please enter the name of the new list.",
+                                      preferredStyle: .alert)
+        
+        // Submit button
+        let submitAction = UIAlertAction(title: "Submit", style: .default, handler: { (action) -> Void in
+            // Get 1st TextField's text
+            let textField = alert.textFields![0]
+            if let listName = textField.text {
+                self.addListToDatabase(named: listName)
+            }
+        })
+        
+        // Cancel button
+        let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: { (action) -> Void in })
+        
+        // Add 1 textField and customize it
+        alert.addTextField { (textField: UITextField) in
+            textField.keyboardAppearance = .dark
+            textField.keyboardType = .default
+            textField.autocorrectionType = .default
+            textField.placeholder = "Grocery List"
+            textField.clearButtonMode = .whileEditing
+        }
+        
+        // Add action buttons and present the Alert
+        alert.addAction(submitAction)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func addListToDatabase(named name: String) {
+        let gl = GroceryList(name: "\(name)", context: fetchedResultsController!.managedObjectContext)
+        print("Created new list: \(String(describing: gl))")
+    }
+    
     @IBAction func addNewGroceryList(_ sender: Any) {
         // Create a new grocery list... and Core Data takes care of the rest!
-        let gl = GroceryList(name: "New List", context: fetchedResultsController!.managedObjectContext)
-        print("Just created a grocery list: \(gl)")
+        addListToDatabase(named: "New List")
     }
     
     // MARK: TableView Data Source
@@ -57,6 +92,12 @@ class GroceryListsViewController: CoreDataTableViewController {
         cell.detailTextLabel?.text = String(format: "%d items", gl.items!.count)
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if let context = fetchedResultsController?.managedObjectContext, let groceryList = fetchedResultsController?.object(at: indexPath) as? GroceryList, editingStyle == .delete {
+            context.delete(groceryList)
+        }
     }
     
     // MARK: Navigation
@@ -78,7 +119,7 @@ class GroceryListsViewController: CoreDataTableViewController {
                 // only interested in those within the current grocery list:
                 // NSPredicate to the rescue!
                 let indexPath = tableView.indexPathForSelectedRow!
-                let groceryList = fetchedResultsController?.object(at: indexPath)
+                let groceryList = fetchedResultsController?.object(at: indexPath) as? GroceryList
                 
                 let pred = NSPredicate(format: "groceryList = %@", argumentArray: [groceryList!])
                 
@@ -89,6 +130,9 @@ class GroceryListsViewController: CoreDataTableViewController {
                 
                 // Inject it into the notesVC
                 itemsVC.fetchedResultsController = fc
+                
+                // Inject the notebook too!
+                itemsVC.groceryList = groceryList
             }
         }
     }

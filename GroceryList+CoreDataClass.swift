@@ -2,16 +2,16 @@
 //  GroceryList+CoreDataClass.swift
 //  MyGroceries
 //
-//  Created by Ginny Pennekamp on 4/17/17.
+//  Created by Ginny Pennekamp on 4/20/17.
 //  Copyright © 2017 GhostBirdGames. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
-@objc(GroceryList)
-public class GroceryList: NSManagedObject {
 
+public class GroceryList: NSManagedObject {
+    
     convenience init(name: String, context: NSManagedObjectContext) {
         
         if let ent = NSEntityDescription.entity(forEntityName: "GroceryList", in: context) {

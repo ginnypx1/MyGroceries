@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		340AE3141EA91FAF008DDEE5 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340AE3101EA91FAF008DDEE5 /* Item+CoreDataClass.swift */; };
+		340AE3151EA91FAF008DDEE5 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340AE3111EA91FAF008DDEE5 /* Item+CoreDataProperties.swift */; };
+		340AE3161EA91FAF008DDEE5 /* GroceryList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340AE3121EA91FAF008DDEE5 /* GroceryList+CoreDataClass.swift */; };
+		340AE3171EA91FAF008DDEE5 /* GroceryList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340AE3131EA91FAF008DDEE5 /* GroceryList+CoreDataProperties.swift */; };
 		341D98151EA4FBD4001F9965 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341D98141EA4FBD4001F9965 /* AppDelegate.swift */; };
 		341D98171EA4FBD4001F9965 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341D98161EA4FBD4001F9965 /* ViewController.swift */; };
 		341D981A1EA4FBD4001F9965 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341D98181EA4FBD4001F9965 /* Main.storyboard */; };
@@ -14,16 +18,17 @@
 		341D981F1EA4FBD4001F9965 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341D981D1EA4FBD4001F9965 /* LaunchScreen.storyboard */; };
 		341D98281EA4FEA6001F9965 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 341D98261EA4FEA6001F9965 /* Model.xcdatamodeld */; };
 		341D982B1EA5067F001F9965 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341D982A1EA5067F001F9965 /* CoreDataStack.swift */; };
-		341D983D1EA5464B001F9965 /* GroceryList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341D98391EA5464B001F9965 /* GroceryList+CoreDataClass.swift */; };
-		341D983E1EA5464B001F9965 /* GroceryList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341D983A1EA5464B001F9965 /* GroceryList+CoreDataProperties.swift */; };
-		341D983F1EA5464B001F9965 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341D983B1EA5464B001F9965 /* Item+CoreDataClass.swift */; };
-		341D98401EA5464B001F9965 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341D983C1EA5464B001F9965 /* Item+CoreDataProperties.swift */; };
 		341D98421EA54856001F9965 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341D98411EA54856001F9965 /* CoreDataTableViewController.swift */; };
 		341D98451EA54A92001F9965 /* GroceryListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341D98441EA54A92001F9965 /* GroceryListsViewController.swift */; };
 		34F1705F1EA7B99900BD4ABE /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F1705E1EA7B99900BD4ABE /* ItemsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		340AE30F1EA91E5A008DDEE5 /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
+		340AE3101EA91FAF008DDEE5 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Item+CoreDataClass.swift"; path = "../Item+CoreDataClass.swift"; sourceTree = "<group>"; };
+		340AE3111EA91FAF008DDEE5 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Item+CoreDataProperties.swift"; path = "../Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		340AE3121EA91FAF008DDEE5 /* GroceryList+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GroceryList+CoreDataClass.swift"; path = "../GroceryList+CoreDataClass.swift"; sourceTree = "<group>"; };
+		340AE3131EA91FAF008DDEE5 /* GroceryList+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GroceryList+CoreDataProperties.swift"; path = "../GroceryList+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		341D98111EA4FBD4001F9965 /* MyGroceries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGroceries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		341D98141EA4FBD4001F9965 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		341D98161EA4FBD4001F9965 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,10 +38,6 @@
 		341D98201EA4FBD4001F9965 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		341D98271EA4FEA6001F9965 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		341D982A1EA5067F001F9965 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		341D98391EA5464B001F9965 /* GroceryList+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GroceryList+CoreDataClass.swift"; path = "../GroceryList+CoreDataClass.swift"; sourceTree = "<group>"; };
-		341D983A1EA5464B001F9965 /* GroceryList+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GroceryList+CoreDataProperties.swift"; path = "../GroceryList+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		341D983B1EA5464B001F9965 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Item+CoreDataClass.swift"; path = "../Item+CoreDataClass.swift"; sourceTree = "<group>"; };
-		341D983C1EA5464B001F9965 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Item+CoreDataProperties.swift"; path = "../Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		341D98411EA54856001F9965 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
 		341D98441EA54A92001F9965 /* GroceryListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListsViewController.swift; sourceTree = "<group>"; };
 		34F1705E1EA7B99900BD4ABE /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
@@ -97,10 +98,10 @@
 			children = (
 				341D982A1EA5067F001F9965 /* CoreDataStack.swift */,
 				341D98261EA4FEA6001F9965 /* Model.xcdatamodeld */,
-				341D98391EA5464B001F9965 /* GroceryList+CoreDataClass.swift */,
-				341D983A1EA5464B001F9965 /* GroceryList+CoreDataProperties.swift */,
-				341D983B1EA5464B001F9965 /* Item+CoreDataClass.swift */,
-				341D983C1EA5464B001F9965 /* Item+CoreDataProperties.swift */,
+				340AE3101EA91FAF008DDEE5 /* Item+CoreDataClass.swift */,
+				340AE3111EA91FAF008DDEE5 /* Item+CoreDataProperties.swift */,
+				340AE3121EA91FAF008DDEE5 /* GroceryList+CoreDataClass.swift */,
+				340AE3131EA91FAF008DDEE5 /* GroceryList+CoreDataProperties.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -189,16 +190,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				341D98171EA4FBD4001F9965 /* ViewController.swift in Sources */,
-				341D983E1EA5464B001F9965 /* GroceryList+CoreDataProperties.swift in Sources */,
-				341D98401EA5464B001F9965 /* Item+CoreDataProperties.swift in Sources */,
-				341D983D1EA5464B001F9965 /* GroceryList+CoreDataClass.swift in Sources */,
+				340AE3161EA91FAF008DDEE5 /* GroceryList+CoreDataClass.swift in Sources */,
 				341D98151EA4FBD4001F9965 /* AppDelegate.swift in Sources */,
 				341D98281EA4FEA6001F9965 /* Model.xcdatamodeld in Sources */,
 				34F1705F1EA7B99900BD4ABE /* ItemsViewController.swift in Sources */,
 				341D982B1EA5067F001F9965 /* CoreDataStack.swift in Sources */,
 				341D98421EA54856001F9965 /* CoreDataTableViewController.swift in Sources */,
+				340AE3151EA91FAF008DDEE5 /* Item+CoreDataProperties.swift in Sources */,
+				340AE3171EA91FAF008DDEE5 /* GroceryList+CoreDataProperties.swift in Sources */,
+				340AE3141EA91FAF008DDEE5 /* Item+CoreDataClass.swift in Sources */,
 				341D98451EA54A92001F9965 /* GroceryListsViewController.swift in Sources */,
-				341D983F1EA5464B001F9965 /* Item+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,9 +373,10 @@
 		341D98261EA4FEA6001F9965 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				340AE30F1EA91E5A008DDEE5 /* Model 2.xcdatamodel */,
 				341D98271EA4FEA6001F9965 /* Model.xcdatamodel */,
 			);
-			currentVersion = 341D98271EA4FEA6001F9965 /* Model.xcdatamodel */;
+			currentVersion = 340AE30F1EA91E5A008DDEE5 /* Model 2.xcdatamodel */;
 			name = Model.xcdatamodeld;
 			path = ../Model.xcdatamodeld;
 			sourceTree = "<group>";

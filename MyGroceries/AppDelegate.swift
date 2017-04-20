@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import CoreData
+
+// MARK: - AppDelegate: UIResponder, UIApplicationDelegate
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    // MARK: - Properties
-
+    // MARK: Properties
+    
     var window: UIWindow?
     let stack = CoreDataStack(modelName: "Model")!
     
@@ -27,34 +30,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Error droping all objects in DB")
         }
         
-        // Create grocery lists
-        let costcoList = GroceryList(name: "Costco List", context: stack.context)
-        let vonsList  = GroceryList(name: "Vons List", context: stack.context)
+        // Create grocery list
+        let vonsList = GroceryList(name: "Vons", context: stack.context)
+        let costcoList  = GroceryList(name: "Costco", context: stack.context)
         
         // Check out the "data" field when you print an NSManagedObject subclass.
-        print(costcoList)
         print(vonsList)
+        print(costcoList)
         
-        // Create Notes
+        // Create Items
         let bananas = Item(name: "Bananas", context: stack.context)
-        let yogurt = Item(name: "Yogurt", context: stack.context)
         let salmon = Item(name: "Salmon", context: stack.context)
         
-        // Let's set the grocery List property of those 3 notes
+        // Let's set the notebook property of those 2 notes
         bananas.groceryList = vonsList
-        yogurt.groceryList = vonsList
         salmon.groceryList = costcoList
 
     }
     
-
-
+    // MARK: UIApplicationDelegate
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        preloadData()
+        // Load some notebooks and notes.
+        // preloadData()
+        // Start Autosaving
+        stack.autoSave(10)
         return true
     }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
 
+        stack.save()
+        
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
 
-
+        stack.save()
+    }
 }
+
 
